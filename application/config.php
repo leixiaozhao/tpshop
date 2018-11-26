@@ -15,7 +15,7 @@ return [
     // +----------------------------------------------------------------------
 
     // 应用调试模式
-    'app_debug'              => false,
+    'app_debug'              => true,
     // 应用Trace
     'app_trace'              => false,
     // 应用模式状态
@@ -95,9 +95,9 @@ return [
     // 是否强制使用路由
     'url_route_must'         => false,
     // 域名部署
-    'url_domain_deploy'      => false,
+    'url_domain_deploy'      => true,
     // 域名根，如thinkphp.cn
-    'url_domain_root'        => '',
+    'url_domain_root'        => 'www.iq36.com',
     // 是否自动转换URL中的控制器和操作名
     'url_convert'            => true,
     // 默认的访问控制器层
@@ -131,17 +131,19 @@ return [
         // 模板文件名分隔符
         'view_depr'    => DS,
         // 模板引擎普通标签开始标记
-        'tpl_begin'    => '{',
+        'tpl_begin'    => '<{',
         // 模板引擎普通标签结束标记
-        'tpl_end'      => '}',
+        'tpl_end'      => '}>',
         // 标签库标签开始标记
-        'taglib_begin' => '{',
+        'taglib_begin' => '<{',
         // 标签库标签结束标记
-        'taglib_end'   => '}',
+        'taglib_end'   => '}>',
     ],
 
     // 视图输出字符串内容替换
-    'view_replace_str'       => [],
+    'view_replace_str'       => ['ZL'=>'static/admin',
+                                 '__PUBLIC__'=>'public'
+        ],
     // 默认跳转页面对应的模板文件
     'dispatch_success_tmpl'  => THINK_PATH . 'tpl' . DS . 'dispatch_jump.tpl',
     'dispatch_error_tmpl'    => THINK_PATH . 'tpl' . DS . 'dispatch_jump.tpl',

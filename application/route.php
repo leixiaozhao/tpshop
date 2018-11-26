@@ -1,21 +1,13 @@
 <?php
-// +----------------------------------------------------------------------
-// | ThinkPHP [ WE CAN DO IT JUST THINK ]
-// +----------------------------------------------------------------------
-// | Copyright (c) 2006~2018 http://thinkphp.cn All rights reserved.
-// +----------------------------------------------------------------------
-// | Licensed ( http://www.apache.org/licenses/LICENSE-2.0 )
-// +----------------------------------------------------------------------
-// | Author: liu21st <liu21st@gmail.com>
-// +----------------------------------------------------------------------
+use think\Route;
 
-return [
-    '__pattern__' => [
-        'name' => '\w+',
-    ],
-    '[hello]'     => [
-        ':id'   => ['index/hello', ['method' => 'get'], ['id' => '\d+']],
-        ':name' => ['index/hello', ['method' => 'post']],
-    ],
 
-];
+Route::rule(['admin/'=>'admin/Index/index']);
+Route::rule(['admin'=>'admin/Index/index']);
+Route::rule(['welcome'=>'admin/Welcome/index']);
+Route::rule(['memberlist'=>'admin/Member/memberlist']);
+Route::rule(['member-add'=>'admin/Member/memberadd']);
+Route::rule(['member-del'=>'admin/Member/memberdel']);
+Route::rule(['orderlist'=>'admin/Order/orderlist']);
+Route::rule(['orderadd'=>'admin/Order/orderadd']);
+Route::rule(['cate-index'=>'admin/Cate/index']);
