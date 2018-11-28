@@ -1,14 +1,26 @@
 <{include file="common/header" /}>
   
   <body>
-    <div class="x-body layui-anim layui-anim-up">
-        <form class="layui-form" >
+    <div class="x-body">
+        <form class="layui-form">
           <div class="layui-form-item">
-              <label for="L_email" class="layui-form-label">
-                  <span class="x-red">*</span>邮箱
+              <label for="username" class="layui-form-label">
+                  <span class="x-red">*</span>登录名
               </label>
               <div class="layui-input-inline">
-                  <input type="text" id="L_email" name="email" required="" lay-verify="email"
+                  <input type="text" id="username" name="username" required="" lay-verify="required"
+                  autocomplete="off" value="admin" class="layui-input">
+              </div>
+              <div class="layui-form-mid layui-word-aux">
+                  <span class="x-red">*</span>将会成为您唯一的登入名
+              </div>
+          </div>
+          <div class="layui-form-item">
+              <label for="phone" class="layui-form-label">
+                  <span class="x-red">*</span>手机
+              </label>
+              <div class="layui-input-inline">
+                  <input type="text" value="18925139194" id="phone" name="phone" required="" lay-verify="phone"
                   autocomplete="off" class="layui-input">
               </div>
               <div class="layui-form-mid layui-word-aux">
@@ -16,12 +28,23 @@
               </div>
           </div>
           <div class="layui-form-item">
-              <label for="L_username" class="layui-form-label">
-                  <span class="x-red">*</span>昵称
+              <label for="L_email" class="layui-form-label">
+                  <span class="x-red">*</span>邮箱
               </label>
               <div class="layui-input-inline">
-                  <input type="text" id="L_username" name="username" required="" lay-verify="nikename"
+                  <input type="text" value="113664000@qq.com" id="L_email" name="email" required="" lay-verify="email"
                   autocomplete="off" class="layui-input">
+              </div>
+              <div class="layui-form-mid layui-word-aux">
+                  <span class="x-red">*</span>
+              </div>
+          </div>
+          <div class="layui-form-item">
+              <label class="layui-form-label"><span class="x-red">*</span>角色</label>
+              <div class="layui-input-block">
+                <input type="checkbox" name="like1[write]" lay-skin="primary" title="超级管理员" checked="">
+                <input type="checkbox" name="like1[read]" lay-skin="primary" title="编辑人员">
+                <input type="checkbox" name="like1[write]" lay-skin="primary" title="宣传人员" >
               </div>
           </div>
           <div class="layui-form-item">
@@ -77,29 +100,7 @@
 
           //监听提交
           form.on('submit(add)', function(data){
-            console.log(data.field);
-              $.ajax({
-                  type:"POST",
-                  url:"<{url:('admin/Member/memberadd')}>",
-                  data:data.field,
-                  dataType: "json",
-                  success:function(data){
-                      if(data.code == 200){
-                          //发异步，把数据提交给php
-                          layer.alert("增加成功", {icon: 6},function () {
-                              // 获得frame索引
-                              var index = parent.layer.getFrameIndex(window.name);
-                              //关闭当前frame
-                              parent.layer.close(index);
-                          });
-                          return false;
-                      }else{
-                          console.log(data);
-                          return;
-                      }
-                  }
-              })
-              return
+            console.log(data);
             //发异步，把数据提交给php
             layer.alert("增加成功", {icon: 6},function () {
                 // 获得frame索引
@@ -113,7 +114,12 @@
           
         });
     </script>
-
+    <script>var _hmt = _hmt || []; (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?b393d153aeb26b46e9431fabaf0f6190";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();</script>
   </body>
 
 </html>

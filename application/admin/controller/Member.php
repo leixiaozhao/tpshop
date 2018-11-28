@@ -8,6 +8,7 @@
 namespace app\admin\controller;
 
 use think\Controller;
+use think\Request;
 
 class Member extends Controller{
 
@@ -20,11 +21,27 @@ class Member extends Controller{
 
     public function memberadd(){
 
-        return $this->fetch('member/member-add');
+     if(Request::instance()->isAjax()){
+        return "123";
+     }else{
+         return $this->fetch('member/member-add');
+     }
+
+
     }
 
     public function memberdel(){
 
         return $this->fetch('member/member-del');
+    }
+
+    public function memberedit(){
+
+        return $this->fetch('member/member-edit');
+    }
+
+    public function memberpassword(){
+
+        return $this->fetch('member/member-password');
     }
 }
