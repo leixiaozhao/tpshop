@@ -19,6 +19,7 @@ Route::rule([
         'member-del'=>'admin/Member/memberdel',
         'member-edit'=>'admin/Member/memberedit',
         'member-password'=>'admin/Member/memberpassword',
+        'memberaddres'=>'admin/Member/memberaddres',
 ]);
 
 // +----------------------------------------------------------------------

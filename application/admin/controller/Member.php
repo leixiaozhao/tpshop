@@ -21,13 +21,19 @@ class Member extends Controller{
 
     public function memberadd(){
 
-     if(Request::instance()->isAjax()){
+     if(Request::instance()->isPost()){
         return "123";
      }else{
+         echo 123;
          return $this->fetch('member/member-add');
      }
 
 
+    }
+
+    public function addres(){
+
+        return 123;
     }
 
     public function memberdel(){
